@@ -9,7 +9,7 @@
 > free via Groq.
 
 ### Try it live
-[**→ Open live demo**](https://ct1-regression-detector.onrender.com) — pick a prompt
+[**→ Open live demo**](https://regression-detector.onrender.com/) — pick a prompt
 version, click Run eval, see regression detection in action.
 No setup required. Results in ~30 seconds.
 
