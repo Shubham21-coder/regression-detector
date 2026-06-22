@@ -41,12 +41,23 @@ yaml_path = version_map[prompt_choice]
 version_id = yaml_path.split("/")[1].replace(".yaml", "")
 
 backend_env = os.environ.get("LLM_BACKEND", "groq")
-model_env = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile") if backend_env == "groq" else "local-model"
 
 st.sidebar.markdown("---")
-st.sidebar.markdown(f"**Backend:** {backend_env.capitalize()} ({model_env})")
+st.sidebar.markdown("**Model Selection**")
+model_choices = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "openai/gpt-oss-120b", "Custom"]
+selected_model_dropdown = st.sidebar.selectbox("Choose Model", model_choices, label_visibility="collapsed")
+
+if selected_model_dropdown == "Custom":
+    model_env = st.sidebar.text_input("Enter custom model name", value="llama-3.3-70b-versatile")
+else:
+    model_env = selected_model_dropdown
+
+# Update environment variable dynamically so the runner picks it up
+os.environ["GROQ_MODEL"] = model_env
+
+st.sidebar.markdown("---")
+st.sidebar.markdown(f"**Backend:** {backend_env.capitalize()}")
 st.sidebar.markdown("**Cases:** 10 (demo mode)")
-st.sidebar.markdown("**Cost:** $0.00 (free tier)")
 
 # Show prompt content
 with st.expander(f"View prompt: {version_id}", expanded=False):

@@ -3,22 +3,70 @@ import os
 from jinja2 import Template
 
 TEMPLATE = """<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <title>CT1 Eval Report — {{ scores.version_id }}</title>
 <style>
+  /* === THEME VARIABLES === */
+  :root {
+    --bg-color: #f5f7fa;
+    --text-color: #1a1a1a;
+    --text-muted: #666;
+    --card-bg: #ffffff;
+    --card-border: #eee;
+    --metric-bg: #f8f9fa;
+    --metric-border: #dee2e6;
+    --table-th-bg: #f8f9fa;
+    --table-td-border: #f0f0f0;
+    --table-hover: #fafafa;
+    --accent: #3b82f6;
+  }
+  [data-theme="dark"] {
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+    --metric-bg: #0f172a;
+    --metric-border: #475569;
+    --table-th-bg: #334155;
+    --table-td-border: #334155;
+    --table-hover: #0f172a;
+    --accent: #60a5fa;
+  }
+
   /* === RESET + BASE === */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    color: #1a1a1a;
-    background: #f5f5f5;
+    color: var(--text-color);
+    background: var(--bg-color);
     padding: 32px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-  .container { max-width: 960px; margin: 0 auto; }
+  .container { max-width: 960px; margin: 0 auto; position: relative; }
+  
+  .theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .theme-toggle:hover {
+    background: var(--metric-bg);
+    transform: translateY(-1px);
+  }
   
   /* === STATUS BADGE === */
   .badge {
@@ -36,20 +84,26 @@ TEMPLATE = """<!DOCTYPE html>
 
   /* === CARDS === */
   .card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
     padding: 24px;
     margin-bottom: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
   }
   .card-title {
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: #666;
+    color: var(--text-muted);
     margin-bottom: 16px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--card-border);
     padding-bottom: 10px;
   }
 
@@ -61,29 +115,34 @@ TEMPLATE = """<!DOCTYPE html>
     margin-bottom: 16px;
   }
   .metric-box {
-    background: #f8f9fa;
+    background: var(--metric-bg);
     border-radius: 8px;
     padding: 14px 16px;
-    border-left: 4px solid #dee2e6;
+    border-left: 4px solid var(--metric-border);
+    transition: background-color 0.3s ease;
+  }
+  .metric-box:hover {
+    background: var(--table-hover);
   }
   .metric-box.positive { border-left-color: #28a745; }
   .metric-box.negative { border-left-color: #dc3545; }
   .metric-box.neutral  { border-left-color: #6c757d; }
-  .metric-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
-  .metric-value { font-size: 24px; font-weight: 700; color: #1a1a1a; line-height: 1.2; }
+  .metric-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .metric-value { font-size: 24px; font-weight: 700; color: var(--text-color); line-height: 1.2; }
   .metric-delta { font-size: 12px; margin-top: 2px; }
   .delta-pos { color: #28a745; }
   .delta-neg { color: #dc3545; }
-  .delta-neu { color: #888; }
+  .delta-neu { color: var(--text-muted); }
 
   /* === TABLES === */
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { background: #f8f9fa; color: #555; font-weight: 600; text-align: left;
-       padding: 10px 12px; border-bottom: 2px solid #dee2e6; }
-  td { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
-  tr:hover td { background: #fafafa; }
-  .regressed-row td { background: #fff8f8; }
-  .text-cell { max-width: 240px; word-break: break-word; color: #333; }
+  th { background: var(--table-th-bg); color: var(--text-muted); font-weight: 600; text-align: left;
+       padding: 10px 12px; border-bottom: 2px solid var(--card-border); transition: background-color 0.3s; }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--table-td-border); vertical-align: top; }
+  tr { transition: background-color 0.2s; }
+  tr:hover td { background: var(--table-hover); }
+  .regressed-row td { background: rgba(220, 53, 69, 0.05); }
+  .text-cell { max-width: 240px; word-break: break-word; color: var(--text-color); }
   .label-chip {
     display: inline-block; padding: 2px 8px; border-radius: 10px;
     font-size: 11px; font-weight: 600;
@@ -154,13 +213,24 @@ TEMPLATE = """<!DOCTYPE html>
 
   /* === MISC === */
   .header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
-  .run-meta   { font-size: 12px; color: #888; }
-  a { color: #4a90d9; text-decoration: none; }
-  .section-sep { height: 1px; background: #eee; margin: 8px 0 16px; }
+  .header h1 { font-size: 22px; color: var(--text-color); margin-bottom: 4px; }
+  .header p { color: var(--text-muted); font-size: 13px; }
+  .meta-info { text-align: right; font-size: 12px; color: var(--text-muted); }
 </style>
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    if (html.getAttribute('data-theme') === 'dark') {
+      html.setAttribute('data-theme', 'light');
+    } else {
+      html.setAttribute('data-theme', 'dark');
+    }
+  }
+</script>
 </head>
 <body>
 <div class="container">
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
 
   <!-- HEADER -->
   <div class="header-row">
