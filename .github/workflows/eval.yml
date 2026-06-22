@@ -1,0 +1,114 @@
+name: Prompt Regression Eval
+
+on:
+  pull_request:
+    paths:
+      - 'prompts/**.yaml'
+  push:
+    branches: [main]
+    paths:
+      - 'prompts/**.yaml'
+  workflow_dispatch:
+    inputs:
+      yaml_file:
+        description: 'Prompt YAML filename (e.g. v2.yaml)'
+        default: 'v1.yaml'
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  regression-eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Detect changed prompt file
+        id: detect
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "yaml=prompts/${{ github.event.inputs.yaml_file }}" >> $GITHUB_OUTPUT
+          else
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'prompts/*.yaml' | head -1)
+            echo "yaml=${CHANGED:-prompts/v1.yaml}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run eval (mock mode for CI)
+        id: eval
+        env:
+          USE_MOCK_RUNNER: "true"
+          DB_PATH: "storage/runs.db"
+        run: |
+          mkdir -p storage reports
+          python main.py --yaml ${{ steps.detect.outputs.yaml }} \
+                         --dataset data/golden_dataset.json
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
+      - name: Read result summary
+        id: summary
+        run: |
+          SUMMARY=$(cat results_summary.txt 2>/dev/null | tail -1 || echo "No summary available")
+          echo "text=${SUMMARY}" >> $GITHUB_OUTPUT
+
+      - name: Post PR comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const exitCode = '${{ steps.eval.outputs.exit_code }}';
+            const summary  = `${{ steps.summary.outputs.text }}`;
+            const yaml     = '${{ steps.detect.outputs.yaml }}';
+            
+            const statusIcon = exitCode === '0' ? '✅' : (exitCode === '1' ? '⚠️' : '🔴');
+            const statusText = exitCode === '0' ? 'PASS' : (exitCode === '1' ? 'WARN' : 'CRITICAL');
+            
+            const body = [
+              `## ${statusIcon} CT1 Regression Eval — ${statusText}`,
+              `**Prompt evaluated:** \`${yaml}\``,
+              `**Result:** ${summary}`,
+              '',
+              exitCode === '2'
+                ? '> 🚫 **Merge blocked**: Critical regression detected. Fix the prompt before merging.'
+                : exitCode === '1'
+                ? '> ⚠️ **Warning**: Quality regression detected but within acceptable range.'
+                : '> ✅ **No regression detected.** Safe to merge.',
+              '',
+              `<details><summary>How this works</summary>`,
+              `This eval ran your prompt against 125 human-labeled test cases `,
+              `(including 25 edge cases: typos, sarcasm, mixed languages). `,
+              `It uses exact-match scoring + LLM-as-judge (1–5) and compares against the baseline. `,
+              `Warn threshold: −3% accuracy. Critical threshold: −8%.`,
+              `</details>`
+            ].join('\n');
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-report-${{ github.run_number }}
+          path: reports/*.html
+          retention-days: 14
+
+      - name: Fail on critical regression
+        if: steps.eval.outputs.exit_code == '2'
+        run: |
+          echo "::error::CRITICAL regression detected. Merge blocked."
+          exit 2

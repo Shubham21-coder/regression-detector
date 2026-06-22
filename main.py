@@ -58,6 +58,15 @@ def main():
     print(f"{'='*60}\n")
 
     results = asyncio.run(run_all(args.yaml, args.dataset, args.concurrency))
+    
+    from eval.llm_judge import judge_batch
+    skip_judge = os.getenv("SKIP_JUDGE", "false").lower() == "true"
+    if not skip_judge:
+        print("Running LLM-as-judge scoring...")
+        results = asyncio.run(judge_batch(results, concurrency=3))
+    else:
+        print("Skipping LLM-as-judge (SKIP_JUDGE=true)")
+        
     scores = score_run(results)
     run_id = str(uuid.uuid4())[:8]
 
@@ -80,10 +89,20 @@ def main():
     comparison = compare_runs(scores, baseline_scores, results, baseline_results)
     history = get_run_history()
 
+    from eval.drift_detector import compute_rolling_stats, format_drift_alert
+    
+    drift = compute_rolling_stats(db_path=os.getenv("DB_PATH", "storage/runs.db"))
+    print(format_drift_alert(drift))
+    
+    if drift.get("status") in ("drift_warn", "drift_critical"):
+        print(f"  ↳ Trend: {drift['trend_direction']} "
+              f"({drift['accuracy_slope_per_run']:+.3f} per run over {drift['window_size']} runs)")
+        print(f"  ↳ Run accuracies: {drift['run_accuracies']}")
+
     # Generate report
     os.makedirs("reports", exist_ok=True)
     report_path = f"reports/report_{run_id}.html"
-    generate_report(scores, comparison, results, history, report_path)
+    generate_report(scores, comparison, results, history, report_path, run_id=run_id, drift=drift)
     print(f"📊 Report saved: {report_path}")
 
     # Slack alert (stdout fallback if no webhook)

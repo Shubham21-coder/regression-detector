@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  eval-runner:
+    build: .
+    environment:
+      - LLM_BACKEND=${LLM_BACKEND:-groq}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GROQ_MODEL=${GROQ_MODEL:-llama-3.1-8b-instant}
+      - LM_STUDIO_BASE_URL=${LM_STUDIO_BASE_URL:-http://host.docker.internal:1234/v1}
+      - DEMO_MODE=${DEMO_MODE:-false}
+      - SKIP_JUDGE=${SKIP_JUDGE:-false}
+      - DB_PATH=/app/storage/runs.db
+    volumes:
+      - ./storage:/app/storage
+      - ./reports:/app/reports
+      - ./data:/app/data
+      - ./prompts:/app/prompts
+    command: ["--yaml", "prompts/v1.yaml", "--dataset", "data/golden_dataset.json"]

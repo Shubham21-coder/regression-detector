@@ -1,0 +1,20 @@
+#9 52.10    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 6.8 MB/s eta 0:00:00
+#9 52.14 Downloading idna-3.18-py3-none-any.whl (65 kB)
+#9 52.15    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.5/65.5 kB 7.9 MB/s eta 0:00:00
+#9 52.19 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#9 52.23    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 6.9 MB/s eta 0:00:00
+#9 52.29 Downloading typer-0.25.1-py3-none-any.whl (58 kB)
+#9 52.30    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.4/58.4 kB 11.3 MB/s eta 0:00:00
+#9 52.34 Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+#9 52.36    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 131.1/131.1 kB 6.3 MB/s eta 0:00:00
+#9 52.42 Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+#9 52.46 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 52.52 Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+#9 52.57    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 7.5 MB/s eta 0:00:00
+#9 52.61 Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+#9 52.65 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#9 52.69 Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+#9 52.71    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB 8.4 MB/s eta 0:00:00
+#9 52.74 Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+#9 52.92    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 7.1 MB/s eta 0:00:00
+#9 52.97 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
