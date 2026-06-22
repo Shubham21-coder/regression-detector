@@ -5,7 +5,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from eval.runner import run_all
 from eval.scorer import score_run
 from eval.comparator import compare_runs
+from eval.drift_detector import compute_rolling_stats
 from storage.db import init_db, save_run, get_baseline, mark_as_baseline, get_run_history
+from reporting.html_report import generate_report
+import streamlit.components.v1 as components
 import uuid
 
 st.set_page_config(
@@ -37,8 +40,11 @@ version_map = {
 yaml_path = version_map[prompt_choice]
 version_id = yaml_path.split("/")[1].replace(".yaml", "")
 
+backend_env = os.environ.get("LLM_BACKEND", "groq")
+model_env = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile") if backend_env == "groq" else "local-model"
+
 st.sidebar.markdown("---")
-st.sidebar.markdown("**Backend:** Groq (llama-3.3-70b-versatile)")
+st.sidebar.markdown(f"**Backend:** {backend_env.capitalize()} ({model_env})")
 st.sidebar.markdown("**Cases:** 10 (demo mode)")
 st.sidebar.markdown("**Cost:** $0.00 (free tier)")
 
@@ -104,60 +110,42 @@ if run_button:
             st.error(f"Eval failed: {e}")
             st.stop()
 
-    # Results display
-    st.markdown("---")
-    st.subheader("Results")
-
-    # Status badge
-    if comparison:
-        status = comparison['status']
-        color = {"pass": "green", "warn": "orange", "critical": "red"}[status]
-        st.markdown(
-            f"**Status:** :{color}[{status.upper()}] &nbsp;|&nbsp; "
-            f"**{version_id}** vs baseline **{comparison['baseline_version']}**"
+        # Compute drift
+        history = get_run_history(limit=5)
+        drift = compute_rolling_stats() if len(history) >= 2 else None
+        
+        # Generate HTML report
+        os.makedirs("reports", exist_ok=True)
+        report_path = f"reports/report_{run_id}.html"
+        html_report_content = generate_report(
+            scores=scores,
+            comparison=comparison,
+            results=results,
+            history=history,
+            output_path=report_path,
+            run_id=run_id,
+            drift=drift
         )
 
-    # Metric columns
-    m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Accuracy", f"{scores['overall_accuracy']:.1%}",
-               delta=f"{comparison['overall_accuracy_delta']*100:+.1f}%" if comparison else None)
-    m2.metric("Avg latency", f"{scores['avg_latency_ms']:.0f}ms")
-    m3.metric("Vocab mismatch",
-               f"{scores.get('vocabulary_mismatch_rate', 0):.1%}")
-    m4.metric("Regressed cases",
-               comparison['regressed_count'] if comparison else "N/A")
-
-    # Per-class accuracy
-    st.markdown("**Per-class accuracy**")
-    pc = scores['per_class_accuracy']
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Positive", f"{pc.get('positive', 0):.1%}")
-    c2.metric("Negative", f"{pc.get('negative', 0):.1%}")
-    c3.metric("Neutral",  f"{pc.get('neutral', 0):.1%}")
-
-    # Case results table
-    st.markdown("**Case-by-case results (10 cases)**")
-    table_data = []
-    for r in results:
-        table_data.append({
-            "ID": r['id'],
-            "Text": r['text'][:60] + "..." if len(r['text']) > 60 else r['text'],
-            "True label": r['true_label'],
-            "Predicted": r['predicted_label'],
-            "Correct": "✓" if r['correct'] else "✗",
-            "Latency ms": r['latency_ms']
-        })
-    st.dataframe(table_data, use_container_width=True)
-
-    # Regressed cases
-    if comparison and comparison['regressed_cases']:
-        st.markdown("**Regressed cases (correct in baseline, wrong now)**")
-        st.dataframe(comparison['regressed_cases'], use_container_width=True)
+    # Results display
+    st.markdown("---")
+    st.subheader("Results Report")
+    
+    # Download button for the HTML report
+    st.download_button(
+        label="Download Interactive HTML Report",
+        data=html_report_content,
+        file_name=f"report_{run_id}.html",
+        mime="text/html"
+    )
+    
+    # Render interactive HTML directly in Streamlit
+    components.html(html_report_content, height=800, scrolling=True)
 
 # Footer
 st.markdown("---")
 st.markdown(
     "Built by Shubham · "
     "[GitHub repo](https://github.com/YOUR_USERNAME/regression-detector) · "
-    "Model: llama-3.3-70b-versatile via Groq · Dataset: tweet_eval sentiment"
+    f"Model: {model_env} via {backend_env.capitalize()} · Dataset: tweet_eval sentiment"
 )

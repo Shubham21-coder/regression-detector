@@ -480,3 +480,5 @@ def generate_report(scores, comparison, results, history, output_path, run_id="u
     
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html_content)
+        
+    return html_content
