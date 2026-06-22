@@ -1,4 +1,3 @@
----
 
 # CT1 — LLM Prompt Regression Detection System
 

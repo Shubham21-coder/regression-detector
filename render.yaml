@@ -2,9 +2,11 @@ services:
   - type: web
     name: ct1-regression-detector
     env: python
-    buildCommand: pip install -r demo_app/requirements.txt
+    buildCommand: pip install -r requirements.txt && pip install -r demo_app/requirements.txt
     startCommand: streamlit run demo_app/app.py --server.port $PORT --server.address 0.0.0.0
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
       - key: LLM_BACKEND
         value: groq
       - key: DEMO_MODE
