@@ -11,7 +11,7 @@
 > including 25 adversarial edge cases — and blocks merge on critical drops.
 > **Zero ongoing API cost** when run locally via LM Studio.
 
-**[→ Open live demo](https://YOUR_APP.onrender.com)** — select a prompt version,
+**[→ Open live demo](https://regression-detector.onrender.com/)** — select a prompt version,
 run a 10-case eval, see regression detection in action. No setup required.
 
 ---
