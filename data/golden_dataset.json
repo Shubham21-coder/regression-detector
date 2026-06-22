@@ -1,0 +1,602 @@
+[
+  {
+    "id": 0,
+    "text": "@user @user what do these '1/2 naked pics' have to do with anything? They're not even like that.",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 1,
+    "text": "OH: “I had a blue penis while I was this” [playing with Google Earth VR]",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "text": "@user @user That's coming, but I think the victims are going to be Medicaid recipients.",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 3,
+    "text": "I think I may be finally in with the in crowd #mannequinchallenge  #grads2014 @user",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 4,
+    "text": "@user Wow,first Hugo Chavez and now Fidel Castro. Danny Glover, Michael Moore, Oliver Stone, and Sean Penn are running out of heroes.",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 5,
+    "text": "Savchenko now Saakashvili took drug test live on Ukraine TV. To prove they are not drug-fueled loonies?",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 6,
+    "text": "How many more days until opening day? 😩",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 7,
+    "text": "Twitter's #ThankYouObama Shows Heartfelt Gratitude To POTUS",
+    "label": "positive",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "text": "All CSG and Fracking all around Australia is to cease and Mining Entities held Accountable! - Sign the Petition!",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 9,
+    "text": "@user @user @user @user @user @user take away illegals and dead people and Trump wins popular vote too.",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 10,
+    "text": "An interesting security vulnerability - albeit not for the everyday car thief",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 11,
+    "text": "#GilmoreGirlsTop4 1. Spoke2. Paris3. Emily4. PattyInvisible number 5. Richard",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 12,
+    "text": "#onedirection #harrystyles cute little dance 😉",
+    "label": "positive",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 13,
+    "text": "When Ryan privatizes SS, Medicare, Medicaid, & does away with ACA, what will Trump's base feel about \"change\" then? That's a big one right?!",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 14,
+    "text": "Swampbitch Nasty Pelosi  loves yelling 'Fire' in the crowded swamp. #blackfriday @user",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 15,
+    "text": "@user ohhh ok i see 🤔 what if u have medical marijuana clearance? Does that make a difference",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 16,
+    "text": "OPINION: The Anti-#Trump #Riots Are a #SmokeScreen:",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 17,
+    "text": "ISIS and The CIA What You Need To Know! #ISIS #falseflag #saudi #CIA #mossad #israel",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 18,
+    "text": "@user alt-right was adopted by Deplorables. Average middle Americans.  I've now moved to Libertarian. @user",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 19,
+    "text": "@user #GilmoreGirlsTop4 Lorelai, Rory, Lane, Sookie @user @user",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 20,
+    "text": "Christians In Palestine: Yes, They Exist #gaza #palestine #israel #BDS",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 21,
+    "text": "@user Going to see #FantasticBeasts this afternoon. Mom is a Potter fanatic. My niece was, but she's kinda growing out of it.",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 22,
+    "text": "Listen to win passes to see #FantasticBeasts after 2pm w/ @user",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 23,
+    "text": "The United Nations Headquarters in New York #unitednations #newyork #usa🇺🇸 #USA #newyorkcity…",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 24,
+    "text": "Zac Efron Flaunts Fit Abs in New ‘Dirty Grandpa’... #ZacEfron",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 25,
+    "text": "1am and I'm still watching #ThisIsUs",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 26,
+    "text": "The left has really gone Full retard haven't they?",
+    "label": "negative",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 27,
+    "text": "#Israel fire updates: Major blaze breaks out near #Jerusalem, firebombing suspected...",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 28,
+    "text": "RT @user Can I politely suggest that we all stop using the term \"alt-right\" and use other, more precise words.",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 29,
+    "text": "Day 5 Advent Gift Countdown - 'Gold Standard'  #20moresleeps #christmasgifts #luxuryhampers…",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 30,
+    "text": "When Jesse Jackson Cozied Up to Fidel Castro",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 31,
+    "text": "Ben Carson awoke this morning to find out that the big yellow thing in the sky is the sun",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 32,
+    "text": "Bike parking still free.",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 33,
+    "text": "Can't wait to try this - Google Earth VR - this stuff really is the future of exploration....",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 34,
+    "text": "@user @user Trump is likely supporting Putin talking on unsecured phone lines bc Trump's tied to Russia #DworkinReport",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 35,
+    "text": "The fact that mike pence thinks there's a \"cure\" for being gay is absolutely the most ridiculous statement I have ever heard in my life",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 36,
+    "text": "@user @user @user .....Good Old Graham Westley!!",
+    "label": "positive",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 37,
+    "text": "Photos: A Thanksgiving protest against Dakota Access pipeline - The Boston Globe",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 38,
+    "text": "@user @user @user @user Clinton foundation reminds me of Maharashtra CM Antuley's foundation in 80s for taking bribe.",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 39,
+    "text": "Survey shows Poroshenko has lost considerable electoral support in two years",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 40,
+    "text": "When Trump jeopardizes their social security and Medicare payments imma laugh.",
+    "label": "negative",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 41,
+    "text": "At Any Price review – generations clash in the American midwest #ZacEfron",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 42,
+    "text": "Next?#draintheswamp #TimeForChange#TrumpTransitionTeam",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 43,
+    "text": "Wow - the world as we know it is slowly turning upside down: Microsoft joins the Linux Foundation. Good news I supp…",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 44,
+    "text": "So that Westworld show, it isn't too bad. I guess. If you like that sort of thing.",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 45,
+    "text": "Grayson Allen just gave dude such a sick move",
+    "label": "negative",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 46,
+    "text": "Download UBER app, Register with this promo code NGSBA105 and get a free ride worth #2500. #Uber #UberNigeria",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 47,
+    "text": "I love Manchester. Everyone knows that - I have said it many ti... #CristianoRonaldo #citations",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 48,
+    "text": "RT @user It’s not “alt-right.” It’s Neo-Nazi.https://t.co/4fPkSVlSDl",
+    "label": "negative",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 49,
+    "text": "@user In august2008.puppet Saakashvili attacked South Ossetia and Russian peacekeepers.South Ossetia will  be i…",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 50,
+    "text": "Tips for winter driving.#london #cab #taxi #uber #yellowlondontaxi",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 51,
+    "text": "@user Yes, white supremacists are America's greatest problem ever.  OMG.  GET REAL.  #GOAWAY",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 52,
+    "text": "#Hatchimals are shite",
+    "label": "negative",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 53,
+    "text": "@user @user @user @user @user @user I'm getting tired of these people and their gun control",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 54,
+    "text": "#Trump MEMORABILIA#BlackFriday - UP TO 40% OFFUse Code: BLACKFRISAVE#DrainTheSwamp #Deplorables…",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 55,
+    "text": "It's more difficult to move to Mexico as the Clintons built a bloody great fence all along the Border…",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 56,
+    "text": "@user it's weird 'cause I usually like music in his vein, but it's every so shy of being memorable like a Bob Dylan/Lou Reed thing(?)",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 57,
+    "text": "#Putin has had it with #Obama and has decided to throw #America out of #Syria negotiationshttps://t.co/z4CBIDDU11",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 58,
+    "text": "@user we all know on JANUARY 20th trump gonna push oil, fossil fuels, fracking down our throats. Fml... We must fight back. GOP sucks",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 59,
+    "text": "With James Comey in office, how could the US investigate the Russians? @user @user @user  @user",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 60,
+    "text": "If you're looking for work in #Palestine, TX, check out this #job: #Retail #Hiring #CareerArc",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 61,
+    "text": "Didn't take long for the Clinton Foindation money train to derail. Zero Hedge",
+    "label": "negative",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 62,
+    "text": "HOO BOY THAT WESTWORLD FINALE",
+    "label": "positive",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 63,
+    "text": "idk where to start after my intro. im writing from a pro-raising-minimum-wage pov but I'm stuck ☹️",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 64,
+    "text": "This isn't the 1st time @user & the #Hamas supporting #IntifadaBrigade mock disasters/terror attacks while p…",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 65,
+    "text": "Tim Duncan and Gregg Popovich. Two legends.",
+    "label": "positive",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 66,
+    "text": "#Platz / #Place: 4   Vente Pa' Ca (feat. Maluma) - Ricky Martin     #top100 #musik #music #charts #Spain #Spanien",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 67,
+    "text": "Come on Electoral College. Please do your job. Majority of Americans do not want @user This is NOT the f…",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 68,
+    "text": "@user That looks like Trump's transition team.",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 69,
+    "text": "shoutout to the moms of -Zac Efron-Ryan Gosling-Franco Brothers-Hemsworth brothers-Channing Tatumfor making these beautiful men",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 70,
+    "text": "@user @user @user only wants adulation and sycophants. Like Kim Fatty the Third. Paranoia and bugs rooms.",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 71,
+    "text": "@user @user involuntary euthanasia is a better system",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 72,
+    "text": "@user ain't that how y'all got Tim Duncan? 🤔",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 73,
+    "text": "@user @user @user You're also young :P",
+    "label": "positive",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 74,
+    "text": "@user @user @user @user Let robots be #Robots!",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 75,
+    "text": "@user @user @user @user Poorer states than Alabama have it because they accepted Medicaid expansion",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 76,
+    "text": "2016 Prime Cuts JUSTIN VERLANDER Timeline Game Used 2 Color Button Patch 1/1",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 77,
+    "text": "CNN weeps for their erstwhile hero Fidel Castro.",
+    "label": "negative",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 78,
+    "text": "@user The Jew boy has spoken. @user @user @user @user @user",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 79,
+    "text": "The latest Smart LifeStyle Food! Thanks to @user #weightloss #nationalfastfoodday",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 80,
+    "text": "I find myself humming the notes of #ThisIsUs  @user sang a few episodes ago.  Missing her angelic voice.  Love the show.",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 81,
+    "text": "#NoDAPL #CorporateGreed #corporations are #evil especially the media #corporations #tpp #TrumpTrain #bravo #cnn #foxnews #soulless #wrong 😣",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 82,
+    "text": "@user it's free with insurance because of Obamacare, which trump wants to repeal 🙃",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 83,
+    "text": "Buy VAMAA 3D Printing Pen 1.75mm ABS Filament 10m (0.25*40 Strands) (Snow White) at Rs. 299.00",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 84,
+    "text": "The #Obama admin. has carried out a deliberately deceptive campaign accusing Iran of sending arms to #Houthis#yemenhttps://t.co/KYu02C73ww",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 85,
+    "text": "#Yanukovych seems much more willing to take questions from the media than @user often is! #UkrAine",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 86,
+    "text": "Madison Bartley with nice debut tonight: made her only shot and finished with 5 boards, 3 blocks, and 2 steals in Fairmont's win over Tipp.",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 87,
+    "text": "@user @user @user @user ☞ ISIS Films Men Laughing While Woman Is Raped in Background",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 88,
+    "text": "¡Gobble gobble, idiot hookers! #Thanksgiving #ScreamQueens",
+    "label": "negative",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 89,
+    "text": "Pelosi Challenger Brings ‘Industrial Midwest’ Perspective",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 90,
+    "text": "#TPP is N.W.O.; 1%er's Corporatocracy;～Global Governance by Corporate Jews.【https://t.co/WZGQvZfJgo　https://t.co/vRaKoOEr73】#ows #tcot #p2",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 91,
+    "text": "@user I hear you. Not worth it. Its like arguing with the devil. That's why I'm on gab.ai. All us deplorables over there. Come join",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 92,
+    "text": "Power of 50+ years of unrelenting CIA propaganda for sure. Lest we also forget 50+ years illegal USA trade embargo…",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 93,
+    "text": "Okay, @user I think I've got my #GilmoreGirlsTop4: Max, Jess, Luke, Sookie",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 94,
+    "text": "How To Get Medical Marijuana Dispensary Card Ontario",
+    "label": "neutral",
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 95,
+    "text": "@user Your progressive POS rag is as irrelevant as Michael Moore, one of your early editors.",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 96,
+    "text": "“It’s such a futuristic idea. A world in which the descendants of slaves become poets.” ~ Terrance Hayes #NBAwards",
+    "label": "neutral",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 97,
+    "text": "are you gonna say \"suck it bitch\" to the people he mass deported? the people who've been terrorized by drone strike…",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 98,
+    "text": "@user Why is no one screaming for gun control? Shouldn't that be the story MSM obsesses over? But no, they MUST discredit #PizzaGate",
+    "label": "negative",
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 99,
+    "text": "@user Wow...this is one deadly statement! Reminding me of the Greta Muhammad Ali.",
+    "label": "positive",
+    "expected_difficulty": "hard"
+  }
+]

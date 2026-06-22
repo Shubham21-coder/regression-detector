@@ -1,0 +1,22 @@
+version_id: "v1"
+timestamp: "2026-06-22"
+system_prompt: |
+  You are a sentiment classifier. Your job is to classify the sentiment
+  of a tweet as exactly one of these three labels: positive, negative, neutral.
+  
+  Rules:
+  - Reply with ONLY the label word. Nothing else.
+  - Do not explain your answer.
+  - Do not add punctuation.
+  - If uncertain, pick the closest match.
+few_shot_examples:
+  - input: "I love this so much, best day ever!"
+    output: "positive"
+  - input: "Absolutely terrible service, never again."
+    output: "negative"
+  - input: "Package arrived today."
+    output: "neutral"
+  - input: "Can't believe how amazing this turned out"
+    output: "positive"
+  - input: "Delayed again. Third time this month."
+    output: "negative"

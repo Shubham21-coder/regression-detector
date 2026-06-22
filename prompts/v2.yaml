@@ -1,0 +1,5 @@
+version_id: "v2"
+timestamp: "2026-06-22"
+system_prompt: |
+  Classify the tweet sentiment. Say positive, negative, or neutral.
+few_shot_examples: []

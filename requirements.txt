@@ -1,0 +1,8 @@
+openai>=1.30.0
+pydantic>=2.0.0
+pyyaml>=6.0
+datasets>=2.0.0
+aiohttp
+jinja2
+python-dotenv
+tqdm

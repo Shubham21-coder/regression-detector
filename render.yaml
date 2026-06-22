@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ct1-regression-detector
+    env: python
+    buildCommand: pip install -r demo_app/requirements.txt
+    startCommand: streamlit run demo_app/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: LLM_BACKEND
+        value: groq
+      - key: DEMO_MODE
+        value: "true"
+      - key: DEMO_CASE_LIMIT
+        value: "10"
+      - key: GROQ_API_KEY
+        sync: false   # set this manually in Render dashboard — never commit API keys

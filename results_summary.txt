@@ -1,0 +1,3 @@
+v1 (baseline): BASELINE SET | accuracy 63.0% | run_id 800b5e28
+v2 vs v1: PASS | accuracy +0.0% | 20 regressed cases | avg latency 395ms
+v3 vs v1: CRITICAL | accuracy -63.0% | vocabulary_mismatch | 63 regressed cases | avg latency 368ms
