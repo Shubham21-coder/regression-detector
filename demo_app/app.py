@@ -38,7 +38,7 @@ yaml_path = version_map[prompt_choice]
 version_id = yaml_path.split("/")[1].replace(".yaml", "")
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("**Backend:** Groq (Llama-3.1-8B-Instant)")
+st.sidebar.markdown("**Backend:** Groq (llama-3.3-70b-versatile)")
 st.sidebar.markdown("**Cases:** 10 (demo mode)")
 st.sidebar.markdown("**Cost:** $0.00 (free tier)")
 
@@ -157,7 +157,7 @@ if run_button:
 # Footer
 st.markdown("---")
 st.markdown(
-    "Built by Sneha · "
+    "Built by Shubham · "
     "[GitHub repo](https://github.com/YOUR_USERNAME/regression-detector) · "
     "Model: llama-3.3-70b-versatile via Groq · Dataset: tweet_eval sentiment"
 )
