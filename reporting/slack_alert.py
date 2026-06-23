@@ -4,17 +4,13 @@ import os
 import requests
 
 
-def send_slack_alert(comparison: dict, report_path: str):
-    """Send Slack alert on regression. No alert on pass."""
-    status = comparison["status"]
-    if status == "pass":
-        return  # no alert on pass
-
-    emoji = "\U0001f534" if status == "critical" else "\U0001f7e1"
-    delta_pct = comparison["overall_accuracy_delta"] * 100
+def build_alert_text(comparison: dict, report_path: str) -> str:
+    status = comparison['status']
+    emoji = "🔴" if status == "critical" else "🟡"
+    delta_pct = comparison['overall_accuracy_delta'] * 100
     sign = "+" if delta_pct >= 0 else ""
-
-    text = (
+    
+    return (
         f"{emoji} *[CT1 Eval]* {status.upper()} regression detected\n"
         f"Version: {comparison['current_version']} vs baseline {comparison['baseline_version']}\n"
         f"Accuracy delta: {sign}{delta_pct:.1f}% "
@@ -22,6 +18,14 @@ def send_slack_alert(comparison: dict, report_path: str):
         f"Regressed cases: {comparison['regressed_count']}\n"
         f"Report: {report_path}"
     )
+
+def send_slack_alert(comparison: dict, report_path: str):
+    """Send Slack alert on regression. No alert on pass."""
+    status = comparison["status"]
+    if status == "pass":
+        return  # no alert on pass
+
+    text = build_alert_text(comparison, report_path)
 
     webhook = os.getenv("SLACK_WEBHOOK_URL", "")
     if webhook:
